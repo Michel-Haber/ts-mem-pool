@@ -1,7 +1,7 @@
 [package]
 name = "ts-mem-pool"
 license = "MIT"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Michel Habr <michel-haber@hotmail.com>"]
 description = "A simple thread-safe memory pool crate"
 repository = "https://github.com/Michel-Haber/ts-mem-pool"
