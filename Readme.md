@@ -14,3 +14,6 @@ crate would be truly useful.
 - Add detach method for ArcRecycled
 - Add Size methods for MemoryPool
 - Add attach method for MemoryPool
+
+# License
+This crate is distributed under the MIT license
