@@ -24,7 +24,9 @@ pub struct MemoryPool<T> {
 impl<T: Recycle> MemoryPool<T> {
     /// Constructor, must take intial size and maximum size.
     /// The creator closure is used to initialize the mem slots
+    ///
     /// # Panics
+    ///
     /// This function will panic if size > max
     pub fn create_with(size: usize, max: usize, creator: CreateFn<T>) -> MemoryPool<T> {
         assert!(size <= max);
@@ -43,7 +45,9 @@ impl<T: Recycle> MemoryPool<T> {
     }
 
     /// This function returns a memory slot from the memory pool
+    ///
     /// # Panics
+    ///
     /// This function will panic if it needs to allocate more than max
     pub fn get(&self) -> ArcRecycled<T> {
         loop {

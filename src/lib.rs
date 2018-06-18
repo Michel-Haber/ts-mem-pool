@@ -1,4 +1,5 @@
-//! This simple crate provides a thread-safe memory pool
+//! This crate provides a memory pool with thread-safe
+//! memory slots.
 //! It is based on smart pointers, that, when dropped,
 //! return ownership of their memory slot to the pool.
 
@@ -23,8 +24,14 @@ pub mod arc_recycled;
 /// Definition of the pool structure
 pub mod memory_pool;
 
+/// Memory pool
 pub use memory_pool::MemoryPool;
+
+/// Initialization function
 pub use memory_pool::CreateFn;
 
+/// Smart pointer
 pub use arc_recycled::ArcRecycled;
+
+/// Trait to use object in mem-pool
 pub use arc_recycled::Recycle;

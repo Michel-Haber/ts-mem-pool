@@ -7,6 +7,7 @@ use std::ops::DerefMut;
 /// a type in the memory pool
 pub trait Recycle {
     /// Render data of the object usable
+    ///
     /// # Example
     /// ```
     /// extern crate a_memory_pool;
@@ -121,7 +122,9 @@ impl<T: Recycle> Deref for ArcRecycled<T> {
 impl<T: Recycle> DerefMut for ArcRecycled<T> {
     /// Give a mutable reference directly to the
     /// innermost content
+    ///
     /// # Panics
+    ///
     /// Dereferencing a shared pointer
     /// mutably will cause a panic.
     /// This trait should only be used for
