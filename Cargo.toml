@@ -1,8 +1,12 @@
 [package]
-name = "a-memory-pool"
+name = "ts-mem-pool"
+license = "MIT"
 version = "0.1.0"
 authors = ["Michel Habr <michel-haber@hotmail.com>"]
-publish = false
+description = "A simple thread-safe memory pool crate"
+repository = "https://github.com/Michel-Haber/ts-mem-pool"
+keywords = ["memory", "pool", "thread", "safe"]
+maintenance = { status = "looking-for-maintainer" }
 
 [dependencies]
 
