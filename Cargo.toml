@@ -1,0 +1,13 @@
+[package]
+name = "a-memory-pool"
+version = "0.1.0"
+authors = ["Michel Habr <michel-haber@hotmail.com>"]
+publish = false
+
+[dependencies]
+
+[profile.dev]
+incremental = true
+
+[profile.release]
+lto = true
