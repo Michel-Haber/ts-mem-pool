@@ -50,36 +50,7 @@ impl<T: Recycle> MemoryPool<T> {
     ///
     /// This function will panic if it needs to allocate more than max
     pub fn get(&self) -> ArcRecycled<T> {
-        loop {
-            /// Try to get a mem_slot
-            match self.receiver.try_recv() {
-                /// If got one wrap and return it
-                Ok(Some(mem_slot)) => {
-                    return ArcRecycled::new(mem_slot, self.sender.clone());
-                }
-
-                /// If got None, keep trying
-                Ok(None) => {
-                    self.size.fetch_sub(1, Ordering::Relaxed);
-                }
-
-                /// If channel is empty try to create a new memory slot
-                /// If we have place this works, if not, it panics!
-                Err(mpsc::TryRecvError::Empty) => {
-                    if self.size.fetch_add(1, Ordering::Relaxed) < self.max {
-                        return ArcRecycled::new((self.creator)(), self.sender.clone());
-                    }
-                    else {
-                        panic!("Exceeded memory pool limit");
-                    }
-                }
-
-                /// Unreachable
-                Err(_) => {
-                    unreachable!("If the memory pool is alive, the channel cannot be disconnected")
-                }
-            }
-        }
+        self.try_get().expect("Exceeded memory pool limit")
     }
 
     /// This function returns a memory slot from the memory pool
