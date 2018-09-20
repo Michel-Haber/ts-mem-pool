@@ -10,8 +10,8 @@ pub trait Recycle {
     ///
     /// # Example
     /// ```
-    /// extern crate a_memory_pool;
-    /// use a_memory_pool::*;
+    /// extern crate ts_mem_pool;
+    /// use ts_mem_pool::*;
     ///
     /// struct MyType {
     ///     /* Some fields */

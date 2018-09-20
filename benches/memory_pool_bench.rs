@@ -2,11 +2,11 @@
 #![allow(unused_doc_comments)]
 
 extern crate test;
-extern crate a_memory_pool;
+extern crate ts_mem_pool;
 
 use test::Bencher;
 use test::black_box;
-use a_memory_pool::memory_pool::MemoryPool;
+use ts_mem_pool::memory_pool::MemoryPool;
 
 const DATA_SIZE: usize = 500_000;
 type DataType = u64;
